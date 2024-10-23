@@ -6,17 +6,8 @@ st.markdown(''':green[Calculates simple functions.]''')
 
 st.subheader("Enter two variables below.")
 
-
-numberinput1 = st.text_input("Enter first number")
-numberinput2 = st.text_input("Enter second number")
-
-
-if numberinput1.lstrip('-').isdigit() and numberinput2.lstrip('-').isdigit():
-
-	number1 = int(numberinput1)
-	number2 = int(numberinput2)
-
-
+number1 = st.number_input("Enter First Number: ")
+number2 = st.number_input("Enter Second Number: ")
 
 col1,col2,col3,col4 = st.columns([1,1,1,1])
 

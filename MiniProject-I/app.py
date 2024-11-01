@@ -84,10 +84,10 @@ def line_plot():
 
 def candlestick_plot():
 	fig = go.Figure(data=[go.Candlestick(x=user_data["Date"],
-											open=user_data["Open"],
-											high=user_data["High"],
-											low=user_data["Low"],
-											close=user_data["Close"])])
+					     open=user_data["Open"],
+					     high=user_data["High"],
+					     low=user_data["Low"],
+					     close=user_data["Close"])])
 	fig.add_trace(
 		go.Scatter(x=user_data["Date"],
 				    y= user_data["SMA"],
@@ -119,10 +119,14 @@ def volume_analysis_plot():
 						template="plotly_dark",
 						showlegend=True)
 	fig.add_trace(go.Scatter(x=user_data["Date"],
+<<<<<<< HEAD
 							y=user_data["SMA_Volume"],
 							line=dict(color="#FF0000"),
 							name="SMA Indictor"))
 	st.plotly_chart(fig, use_container_width=True)
+=======
+				
+>>>>>>> e78271b7acad91cd3d1b7dd600ad1341c512dce8
 
 
 #---------------------------------Comparartive analysis-------------------------------------------------

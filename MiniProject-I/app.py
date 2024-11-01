@@ -119,14 +119,11 @@ def volume_analysis_plot():
 						template="plotly_dark",
 						showlegend=True)
 	fig.add_trace(go.Scatter(x=user_data["Date"],
-<<<<<<< HEAD
 							y=user_data["SMA_Volume"],
 							line=dict(color="#FF0000"),
 							name="SMA Indictor"))
 	st.plotly_chart(fig, use_container_width=True)
-=======
-				
->>>>>>> e78271b7acad91cd3d1b7dd600ad1341c512dce8
+
 
 
 #---------------------------------Comparartive analysis-------------------------------------------------

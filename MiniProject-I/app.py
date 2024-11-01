@@ -76,10 +76,9 @@ def line_plot():
 						xaxis_title="Date",
 						yaxis_title="Price (USD)",
 						template="plotly_dark",
-						height=600,
 						showlegend=True)
 	
-	st.plotly_chart(fig)
+	st.plotly_chart(fig, use_container_width=True)
 
 	
 
@@ -106,10 +105,9 @@ def candlestick_plot():
 						 xaxis_rangeslider_visible=False,
 						 xaxis_title="Date",
 						 yaxis_title="Price (USD)",
-						 template="plotly_dark",
-						 height=600)
+						 template="plotly_dark")
 
-	st.plotly_chart(fig)
+	st.plotly_chart(fig, use_container_width=True)
 
 #---------------------------------Volume analysis----------------------------------------------------
 
@@ -119,13 +117,12 @@ def volume_analysis_plot():
 						xaxis_title="Date",
 						yaxis_title="Volume",
 						template="plotly_dark",
-						height=600,
 						showlegend=True)
 	fig.add_trace(go.Scatter(x=user_data["Date"],
 							y=user_data["SMA_Volume"],
 							line=dict(color="#FF0000"),
 							name="SMA Indictor"))
-	st.plotly_chart(fig)
+	st.plotly_chart(fig, use_container_width=True)
 
 
 #---------------------------------Comparartive analysis-------------------------------------------------
@@ -149,9 +146,8 @@ def comparative_plot():
 		fig.update_layout(title=f"Comparative Stock Analysis",
 							xaxis_title="Date",
 							yaxis_title="Relative Change",
-							template="plotly_dark",
-							height=600)
-		st.plotly_chart(fig)
+							template="plotly_dark")
+		st.plotly_chart(fig, use_container_width=True)
 
 #---------------------------------Streamlit Code----------------------------------------------------------------------------
 
@@ -188,7 +184,7 @@ if options=="Stock Data":
 	st.metric(f'{ticker} Last Price','{:.2f} USD'.format(stock.fast_info["lastPrice"]), delta = "{:.2f}({:.2f}%)".format(change,pct_change))
 	col1,col2,col3 = st.columns(3)
 	col1.metric("High",'{:.2f}'.format(user_data["High"].max()))
-	col2.metric("Low",'{:.2f}'.format(user_data["Low"].max()))
+	col2.metric("Low",'{:.2f}'.format(user_data["Low"].min()))
 	col3.metric("50 Day Average",'{:.2f}'.format(stock.fast_info['fiftyDayAverage']))
 	st.text("")
 	st.text("")

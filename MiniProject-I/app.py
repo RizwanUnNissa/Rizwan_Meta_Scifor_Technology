@@ -55,8 +55,8 @@ def clean_data(data):
 
 #-----------------Adding Technical Indicators--------------------------------------------------------------------------
 def change(data, add_data):
-	change = ( add_data.fast_info['lastPrice'] - data['Close'].iloc[-2])
-	pct_change = (change/data['Close'].iloc[-2]) *100
+	change = ( add_data.fast_info['lastPrice'] - add_data.fast_info['regularMarketPreviousClose'])
+	pct_change = (change/add_data.fast_info['regularMarketPreviousClose']) *100
 	return change,pct_change
 
 def technical_indicators(data):
@@ -159,7 +159,7 @@ st.sidebar.subheader("Filters:")
 
 with st.sidebar:
 	ticker = st.selectbox("Choose a stock.", stocks)
-	options = ('5d', '1mo', '3mo', '6mo', '1y','5y', 'max')
+	options = ('1d','5d', '1mo', '3mo', '6mo', '1y','5y', 'max')
 	period = st.selectbox("Period", options=options, index=options.index('5d')) # Default value = '5d'
 
 #Stock Data

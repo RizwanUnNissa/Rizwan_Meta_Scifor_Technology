@@ -159,7 +159,7 @@ st.sidebar.subheader("Filters:")
 
 with st.sidebar:
 	ticker = st.selectbox("Choose a stock.", stocks)
-	options =('1d', '5d', '1mo', '3mo', '6mo', '1y','5y', 'max')
+	options =('5d', '1mo', '3mo', '6mo', '1y','5y', 'max')
 	period = st.selectbox("Period", options=options, index=options.index('5d')) # Default value = '5d'
 
 #Stock Data

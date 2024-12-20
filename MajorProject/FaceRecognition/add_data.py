@@ -3,7 +3,7 @@ import pickle
 import cv2
 from model import load_data
 
-path = './dataset.pkl'
+path = 'dataset.pkl'
 
 def get_data(name, image):
 

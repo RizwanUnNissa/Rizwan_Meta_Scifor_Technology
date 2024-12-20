@@ -1,21 +1,36 @@
 import streamlit as st 
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import VideoProcessorBase, webrtc_streamer, WebRtcMode
 import cv2
 import face_recognition as fr 
 from add_data import get_data
 from model import recognize
+import av
+
+import os
+
+
+
+def video_frame_callback(frame=av.VideoFrame):
+
+	frame = frame.to_ndarray(format="rgb24")
+
+	image, name = recognize(frame, tolerance)
+
+	image = av.VideoFrame.from_ndarray(image, format="rgb24")
+
+	return frame 
 
 
 #---------------------------------------Page Configuration---------------------------------------------------
 st.set_page_config(
     page_title="Dashboard",
-    page_icon="icon.png",
+    page_icon="MajorProject/FaceRecognition/icon.jpg",
     layout="centered"
     )
 
 st.title("Face Recognition App")
 
-webrtc_streamer(key="sample")
+
 
 st.sidebar.title("Menu")
 
@@ -79,20 +94,9 @@ if options == "Face Recognition":
 
 
 	if img_input == "WebCam":
-		cam = cv2.VideoCapture(0)
-		cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-		cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-		FRAME_WINDOW = st.image([])
+	
 
-		while True:
-			ret,frame = cam.read()
-			if ret == False:
-				st.error("Camera not working!")
-				st.stop()
+		webrtc_streamer("FaceRecognition", mode=WebRtcMode.SENDRECV,video_frame_callback=video_frame_callback, media_stream_constraints={"video": {"width": 1280}, "audio": False},)
 
-			image,name = recognize(frame,tolerance)
-			image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-			FRAME_WINDOW.image(image)
 
 

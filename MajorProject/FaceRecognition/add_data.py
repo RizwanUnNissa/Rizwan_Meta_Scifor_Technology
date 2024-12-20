@@ -5,7 +5,7 @@ import sys
 from model import load_data
 import os
 
-path = 'dataset.pkl'
+path = 'MajorProject/FaceRecognition/dataset.pkl'
 
 path_dataset = os.path.abspath(path)
 

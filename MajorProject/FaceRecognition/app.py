@@ -94,18 +94,8 @@ if options == "Face Recognition":
 
 	if img_input == "WebCam":
 		FRAME_WINDOW = st.image([])
-		camera = webrtc_streamer(key="example", video_frame_callback=video_frame_callback)
-		while camera.state.playing:
-			with lock:
-					img = img_container["img"]
-			if img is None:
-				continue
-			
-			#image = fr.load_image_file(img)
-			image,name = recognize(img,tolerance)
-			
-
-			FRAME_WINDOW.image(image)
+		webrtc_streamer(key="example")
+		
 
 
 

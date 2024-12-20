@@ -1,14 +1,16 @@
 import pickle
 import cv2
 import face_recognition as fr
-import path
 import sys
 
+import os
+path = 'dataset.pkl'
 
-dir = path.Path(__file__).abspath()
-sys.append.path(dir.parent.parent)
+path_dataset = os.path.abspath(path)
 
-path_dataset = 'dataset.pkl'
+
+
+
 
 #Unpickle dataset
 def load_data():

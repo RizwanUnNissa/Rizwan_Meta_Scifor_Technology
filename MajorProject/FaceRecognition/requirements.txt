@@ -38,7 +38,7 @@ rpds-py==0.22.3
 setuptools==75.6.0
 six==1.17.0
 smmap==5.0.1
-streamlit==1.41.1
+streamlit==1.38.0
 streamlit-webrtc==0.47.9
 tenacity==9.0.0
 toml==0.10.2

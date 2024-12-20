@@ -1,9 +1,14 @@
 import face_recognition as fr
 import pickle 
 import cv2
+import path
+import sys
 from model import load_data
 
-path = 'dataset.pkl'
+dir = path.Path(__file__).abspath()
+sys.append.path(dir.parent.parent)
+
+path_dataset = 'dataset.pkl'
 
 def get_data(name, image):
 
@@ -22,12 +27,8 @@ def get_data(name, image):
 	data[idx]['Id'] = idx - 1
 	data[idx]['encoding'] = encoding
 
-	with open(path , "wb") as f:
+	with open(path_dataset , "wb") as f:
 		pickle.dump(data,f)
 
 	return True
-
-print(len(load_data()))
-
-#get_data("Roger Federer", "C:/Users/hp/OneDrive/Desktop/Riz/opencv_facerecognition/dataset/Original Images/Original Images/Roger Federer/Roger Federer_2.jpg")
 

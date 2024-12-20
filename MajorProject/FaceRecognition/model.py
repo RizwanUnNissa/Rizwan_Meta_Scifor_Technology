@@ -1,13 +1,18 @@
 import pickle
 import cv2
 import face_recognition as fr
+import path
+import sys
 
 
-path = 'dataset.pkl'
+dir = path.Path(__file__).abspath()
+sys.append.path(dir.parent.parent)
+
+path_dataset = 'dataset.pkl'
 
 #Unpickle dataset
 def load_data():
-	with open(path, 'rb') as f:
+	with open(path_dataset, 'rb') as f:
 		data = pickle.load(f)
 	return data 
 
@@ -56,14 +61,4 @@ def recognize(image, tolerance):
 		cv2.putText(image, name, (left, top-10),cv2.FONT_HERSHEY_DUPLEX,0.75,(127,0,255),2)
 
 	return image,name
-'''
-	cv2.imshow("img", image)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
 
-recognize("C:/Users/hp/OneDrive/Desktop/Riz/opencv_facerecognition/dataset/Original Images/Original Images/Ellen Degeneres/Ellen Degeneres_0.jpg",0.6)
-
-
-
-
-'''

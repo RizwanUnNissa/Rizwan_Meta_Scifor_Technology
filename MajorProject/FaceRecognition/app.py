@@ -9,7 +9,7 @@ from model import recognize
 #---------------------------------------Page Configuration---------------------------------------------------
 st.set_page_config(
     page_title="Dashboard",
-    page_icon="icon.png",
+    page_icon="MajorProject/FaceRecognition/icon.jpg",
     layout="centered"
     )
 

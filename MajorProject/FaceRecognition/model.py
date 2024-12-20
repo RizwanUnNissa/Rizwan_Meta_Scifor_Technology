@@ -3,7 +3,7 @@ import cv2
 import face_recognition as fr
 
 
-path = './dataset.pkl'
+path = 'dataset.pkl'
 
 #Unpickle dataset
 def load_data():

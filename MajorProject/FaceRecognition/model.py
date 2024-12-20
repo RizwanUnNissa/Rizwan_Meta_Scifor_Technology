@@ -4,7 +4,7 @@ import face_recognition as fr
 import sys
 
 import os
-path = 'dataset.pkl'
+path = 'MajorProject/FaceRecognition/dataset.pkl'
 
 path_dataset = os.path.abspath(path)
 

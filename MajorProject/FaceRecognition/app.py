@@ -7,7 +7,7 @@ from model import recognize
 import threading
 import av
 
-
+webrtc_streamer(key="sample")
 img_container = {"img":None}
 lock = threading.Lock()
 
@@ -93,8 +93,9 @@ if options == "Face Recognition":
 
 
 	if img_input == "WebCam":
-		FRAME_WINDOW = st.image([])
-		webrtc_streamer(key="example")
+		st.camera_input()
+		#FRAME_WINDOW = st.image([])
+		#webrtc_streamer(key="example")
 		
 
 

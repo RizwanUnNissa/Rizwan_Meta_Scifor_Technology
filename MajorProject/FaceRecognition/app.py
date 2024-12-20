@@ -1,4 +1,5 @@
 import streamlit as st 
+from streamlit_webrtc import webrtc_streamer
 import cv2
 import face_recognition as fr 
 from add_data import get_data
@@ -14,7 +15,7 @@ st.set_page_config(
 
 st.title("Face Recognition App")
 
-
+webrtc_streamer(key="sample")
 
 st.sidebar.title("Menu")
 

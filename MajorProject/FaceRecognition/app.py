@@ -99,9 +99,9 @@ if options == "Face Recognition":
 
 		uploaded_web_image = st.camera_input("Take a Picture")
 		if uploaded_web_image:
-		img = fr.load_image_file(uploaded_web_image)
-		image,name = recognize(img,tolerance)
-		st.image(image)
+			img = fr.load_image_file(uploaded_web_image)
+			image,name = recognize(img,tolerance)
+			st.image(image)
 
 		
 

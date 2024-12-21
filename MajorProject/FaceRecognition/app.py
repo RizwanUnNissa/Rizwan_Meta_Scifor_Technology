@@ -5,6 +5,9 @@ from add_data import get_data
 from model import recognize
 
 
+
+
+
 #---------------------------------------Page Configuration---------------------------------------------------
 st.set_page_config(
     page_title="Dashboard",
@@ -12,13 +15,28 @@ st.set_page_config(
     layout="centered"
     )
 
-st.title("Face Recognition App")
+st.title(":green[Face Recognition App]")
 
 
 
 st.sidebar.title("Menu")
 
-options = st.sidebar.radio(" ", options = ["Upload Image", "Face Recognition"])
+options = st.sidebar.radio(" ", options = ["About","Upload Image", "Face Recognition"])
+
+
+#---------------------------------------About---------------------------------------------------
+
+if options == "About":
+	st.write(" ")
+	st.write(" ")
+	st.subheader("Welcome to the Face Recognition App :material/Person:", divider="green")
+	st.write(" ")
+	st.write(" ")
+	st.markdown('''This is a face recognition app.  \n The sidebar menu contains two options: upload image and face recognition.  \n Upload image allows you to add a photo image to the database from your computer or webcam.  \n Face recognition allows you to upload any image from your browser or take a photo from webcam and returns the name of the recognized faces if available in the database.''')
+	st.write(" ")
+	st.write(" ")
+	st.markdown("Have Fun!\
+	 :confetti_ball:")
 
 #---------------------------------------Dataset---------------------------------------------------
 #### Upload image to database 
@@ -78,11 +96,12 @@ if options == "Face Recognition":
 
 
 	if img_input == "WebCam":
+
 		uploaded_web_image = st.camera_input("Take a Picture")
 		if uploaded_web_image:
-			img = fr.load_image_file(uploaded_web_image)
-			image,name = recognize(img,tolerance)
-			st.image(image)
+		img = fr.load_image_file(uploaded_web_image)
+		image,name = recognize(img,tolerance)
+		st.image(image)
 
 		
 

@@ -56,11 +56,11 @@ def recognize(image, tolerance):
 			name = known_names[idx]
 
 			top,right,bottom,left = face_locations
-			color = [128,255,0]
+			color = [255,255,0]
 
 		cv2.rectangle(image, (left,top), (right,bottom), color, 3)
 
-		cv2.putText(image, name, (left, top-10),cv2.FONT_HERSHEY_DUPLEX,0.75,(255,0,0),2)
+		cv2.putText(image, name, (left, top-10),cv2.FONT_HERSHEY_SIMPLEX,0.75,(255,0,0),2)
 
 	return image,name
 

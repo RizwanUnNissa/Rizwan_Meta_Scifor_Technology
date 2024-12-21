@@ -36,7 +36,7 @@ def recognize(image, tolerance):
 	#Encoding located faces
 	encodings = fr.face_encodings(image, locations)
 
-	image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+	#image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
 	#Matching faces in unknown image to that of known images
 
@@ -60,7 +60,7 @@ def recognize(image, tolerance):
 
 		cv2.rectangle(image, (left,top), (right,bottom), color, 3)
 
-		cv2.putText(image, name, (left, top-10),cv2.FONT_HERSHEY_DUPLEX,0.75,(127,0,255),2)
+		cv2.putText(image, name, (left, top-10),cv2.FONT_HERSHEY_DUPLEX,0.75,(255,0,0),2)
 
 	return image,name
 
